@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>💖💝</title>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<style>
+	body{
+	background-color: #fdb0c0;
+	text-align: center;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	height: 100vh;
+	margin: 0;
+	}
+	button{
+	padding: 10px 20px;
+	border-radius: 10px;
+	border-color: #FFFFFF;
+	background-color: #fdb0c0;
+	}
+</style>
+</head>
+<body>
+<h1>Will you marry me?</h1>
+<button id="yesBtn" onclick="sayYes()">yes💖</button>
+<button id="noBtn" onmouseover="moveNoButton()">no😞</button>
+</body>
+<script>
+const noMessages = [
+    "no 😞",
+    "are you sure?",
+    "think again!",
+    "please? 🥺",
+    "don't do this!"
+];
+let messageIndex = 0;
+const noColor = [
+'#fdb0c0',
+'#e88d9a',
+'#d46979',
+'#bd4759',
+'#8f071c',
+];
+let colorIndex = 0;
+function moveNoButton() {
+const noBtn = document.getElementById('noBtn');
+messageIndex = (messageIndex + 1) % noMessages.length;
+noBtn.innerText = noMessages[messageIndex];
+colorIndex = (colorIndex + 1) % noColor.length;
+noBtn.style.backgroundColor = noColor[colorIndex];
+const x = Math.random()*(window.innerWidth - 100);
+const y = Math.random()*(window.innerHeight - 50);
+noBtn.style.position = 'fixed';
+noBtn.style.left = x+'px';
+noBtn.style.top = y+'px';
+}
+function sayYes() {
+confetti();
+document.querySelector('h1').innerText = 'LETSS GOOOOOO!!!!🎉😊';
+document.getElementById('noBtn').style.display = 'none' ;
+document.getElementById('yesBtn').style.display = 'none' ;
+}
+</script>
+</html>
